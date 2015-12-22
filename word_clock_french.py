@@ -67,10 +67,12 @@ class Example(Frame):
         self.cinq1 = self.canvas.create_text(width*9.4, height*4, anchor=W, font=defualt_font,
                            text=words[3][7:], fill=defualt_fill)
         #fifth row
-        self.midi = self.canvas.create_text(width, height*5, anchor=W, font=defualt_font,
-                           text=words[4][:4], fill=defualt_fill)
-        self.dix1 = self.canvas.create_text(width*3.3, height*5, anchor=W, font=defualt_font,
-                            text=words[4][2:5], fill=defualt_fill)
+        self.mi = self.canvas.create_text(width, height*5, anchor=W, font=defualt_font,
+                           text=words[4][:2], fill=defualt_fill)
+        self.di = self.canvas.create_text(width*3.4, height*5, anchor=W, font=defualt_font,
+                           text=words[4][2:4], fill=defualt_fill)
+        self.x = self.canvas.create_text(width*5.79, height*5, anchor=W, font=defualt_font,
+                            text=words[4][4:5], fill=defualt_fill)
         self.minuit = self.canvas.create_text(width*7, height*5, anchor=W, font=defualt_font,
                            text=words[4][5:], fill=defualt_fill)
         #sixth row
@@ -106,7 +108,7 @@ class Example(Frame):
                            text=words[9][3:8], fill=defualt_fill)
 
         #extra letters
-        self.canvas.create_text(width*3.35, height, anchor=W, font=defualt_font,
+        self.canvas.create_text(width*3.3, height, anchor=W, font=defualt_font,
                            text='V   X', fill=defualt_fill)
         self.canvas.create_text(width*5.7, height*6, anchor=W, font=defualt_font,
                            text='R', fill=defualt_fill)
@@ -141,7 +143,8 @@ def timer(ex):
         hour += 1
     elif minute >= 50:
         changeColor(ex, ex.moins)
-        changeColor(ex, ex.dix2)
+        changeColor(ex, ex.di)
+        changeColor(ex, ex.x)
         hour += 1
     elif minute >= 45:
         changeColor(ex, ex.moins)
@@ -171,7 +174,8 @@ def timer(ex):
         changeColor(ex, ex.et1)
         changeColor(ex, ex.quart)
     elif minute >= 10:
-        changeColor(ex, ex.dix2)
+        changeColor(ex, ex.di)
+        changeColor(ex, ex.x)
     elif minute >= 5:
         changeColor(ex, ex.cinq2)
 
@@ -200,7 +204,8 @@ def timer(ex):
     elif hour == 11 or hour == 23:
         ex.canvas.itemconfigure(ex.onze, fill=default_fill)
     elif hour == 12 :
-        ex.canvas.itemconfigure(ex.midi, fill=default_fill)
+        ex.canvas.itemconfigure(ex.mi, fill=default_fill)
+        ex.canvas.itemconfigure(ex.di, fill=default_fill)
     elif hour == 24 or hour == 0:
         ex.canvas.itemconfigure(ex.minuit, fill=default_fill)
 
@@ -237,9 +242,10 @@ def clear_all(ex):
     ex.canvas.itemconfigure(ex.sept, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.huit, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.neuf, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.dix2, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.di, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.x, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.onze, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.midi, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.mi, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.minuit, fill=defualt_fill)
 
 def changeColor(ex, itemID):
