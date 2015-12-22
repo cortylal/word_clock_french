@@ -16,7 +16,6 @@ s9 = 'VINGT-CINQ '
 s10 = 'ET DEMIE   '
 
 words = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10]
-# print (str(hour) + ':' + str(minute))
 
 class Example(Frame):
 
@@ -25,8 +24,6 @@ class Example(Frame):
 
         self.parent = parent
         self.initUI()
-        #self.timer()
-        #self.root.mainloop()
 
     def initUI(self):
 
@@ -37,9 +34,7 @@ class Example(Frame):
         defualt_font='Courier 70 bold'
         height=75
         width=47
-
-        #height = 100
-        #width = (height*47)/75
+        
         
         self.canvas = Canvas(self, cursor='', bg='#292929')
         #first row
@@ -143,8 +138,7 @@ def timer(ex):
         hour += 1
     elif minute >= 50:
         changeColor(ex, ex.moins)
-        changeColor(ex, ex.di)
-        changeColor(ex, ex.x)
+        changeColor(ex, ex.dix2)
         hour += 1
     elif minute >= 45:
         changeColor(ex, ex.moins)
@@ -174,8 +168,7 @@ def timer(ex):
         changeColor(ex, ex.et1)
         changeColor(ex, ex.quart)
     elif minute >= 10:
-        changeColor(ex, ex.di)
-        changeColor(ex, ex.x)
+        changeColor(ex, ex.dix2)
     elif minute >= 5:
         changeColor(ex, ex.cinq2)
 
@@ -200,7 +193,8 @@ def timer(ex):
     elif hour == 9 or hour == 21:
         ex.canvas.itemconfigure(ex.neuf, fill=default_fill)
     elif hour == 10 or hour == 22:
-        ex.canvas.itemconfigure(ex.dix1, fill=default_fill)
+        ex.canvas.itemconfigure(ex.di, fill=default_fill)
+        ex.canvas.itemconfigure(ex.x, fill=default_fill)
     elif hour == 11 or hour == 23:
         ex.canvas.itemconfigure(ex.onze, fill=default_fill)
     elif hour == 12 :
@@ -223,30 +217,31 @@ def timer(ex):
 def clear_all(ex):
     defualt_fill='#393939'
     ex.canvas.itemconfigure(ex.il_est, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.et1, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.dix2, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.et2, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.demie, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.quart, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.vingt, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.cinq1, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.tiret, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.moins, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.le, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.une, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.deux, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.trois, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.quatre, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.cinq2, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.six, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.trois, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.neuf, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.une, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.sept, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.huit, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.neuf, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.six, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.cinq1, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.mi, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.di, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.x, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.onze, fill=defualt_fill)
-    ex.canvas.itemconfigure(ex.mi, fill=defualt_fill)
     ex.canvas.itemconfigure(ex.minuit, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.onze, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.moins, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.le, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.dix2, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.et1, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.quart, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.vingt, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.tiret, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.cinq2, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.et2, fill=defualt_fill)
+    ex.canvas.itemconfigure(ex.demie, fill=defualt_fill)
+    
 
 def changeColor(ex, itemID):
     default_fill='#EAEAEA'
@@ -261,10 +256,6 @@ def main():
     root.after(1000,timer, ex)
     root.mainloop()
 
-    
-    
-
 
 if __name__ == '__main__':
     main()
-    
